@@ -14,10 +14,13 @@ import android.view.View;
 import android.widget.Button;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.Timer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.shawn.cg.util.DebugLog;
+import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Timber.e("ddddd");
+
+        Timber.e(new IOException("IO ERROR"), "CCCC");
+        Timber.e(new IOException("IO ERROR"), "AAA:%s", "ffff");
         // create Intent to take a picture and return control to the calling application
         Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
 
